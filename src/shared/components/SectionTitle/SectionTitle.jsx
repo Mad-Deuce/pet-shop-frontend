@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 import styles from "./SectionTitle.module.css";
 
 export default function SectionTitle({
   children,
   showButton,
   buttonLabel,
-  buttonLink,
+  buttonLink = "/",
 }) {
   return (
     <div className={styles.sectionTitle}>

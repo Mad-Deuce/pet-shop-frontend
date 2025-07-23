@@ -13,11 +13,25 @@ export default function HomePage() {
     <div className={styles.homePage}>
       <DiscountBanner />
       <Container>
-        <SectionTitle>Categories</SectionTitle>
-        <Categories />
-        <FirstOrderForm />
-        <SectionTitle>Sale</SectionTitle>
-        <Products />
+        <div className={styles.content}>
+          <SectionTitle
+            showButton
+            buttonLabel="All Categories"
+            buttonLink="/categories"
+          >
+            Categories
+          </SectionTitle>
+          <Categories />
+          <FirstOrderForm />
+          <SectionTitle
+            showButton
+            buttonLabel="All Sales"
+            buttonLink="/sales"
+          >
+            Sale
+          </SectionTitle>
+          <Products />
+        </div>
       </Container>
     </div>
   );

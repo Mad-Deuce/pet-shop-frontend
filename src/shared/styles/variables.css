@@ -1,16 +1,15 @@
 :root {
-
-  --color-background-contained: #0D50FF;
+  --color-background-contained: #0d50ff;
   --color-background-hover: #282828;
-  --color-background-footer: #F1F3F4;
+  --color-background-footer: #f1f3f4;
   --color-background-modal: #28282866;
 
   --color-text-primary: #282828;
-  --color-text-secondary: #8B8B8B;
-  --color-text-hover: #0D50FF;
-  
-  --color-border: #DDDDDD;
+  --color-text-secondary: #8b8b8b;
+  --color-text-hover: #0d50ff;
 
-  --padding-inline-content: 40px;
+  --color-border: #dddddd;
 
+  --radius-small: 6px;
+  --radius-big: 12px;
 }
