@@ -7,7 +7,7 @@ import cartReducer from "./cart/cart-slice";
 const persistConfig = {
     key: "root",
     storage,
-    whitelist: []
+    whitelist: ["cart"]
 };
 
 const persistedCartReducer = persistReducer(persistConfig, cartReducer);

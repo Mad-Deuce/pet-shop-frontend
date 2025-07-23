@@ -1,0 +1,19 @@
+.basket {
+  text-decoration: none;
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  left: -0.5rem;
+  background-color: var(--color-background-contained);
+  color: #fff;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

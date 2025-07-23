@@ -1,0 +1,14 @@
+.menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+.link:global(.active) {
+  font-weight: 700;
+}

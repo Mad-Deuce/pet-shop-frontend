@@ -1,5 +1,15 @@
 :root {
-  --title-text-color: #000000d9;
-  --text-color: #000000cc;
-  --light-text-color: #8d8d8dcc;
+
+  --color-background-contained: #0D50FF;
+  --color-background-hover: #282828;
+  --color-background-footer: #F1F3F4;
+  --color-background-modal: #28282866;
+
+  --color-text-primary: #282828;
+  --color-text-secondary: #8B8B8B;
+  
+  --color-border: #DDDDDD;
+
+  --padding-inline-content: 40px;
+
 }
