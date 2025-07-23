@@ -17,16 +17,17 @@ export default function NotFoundPage() {
           <Img />
           <FourIcon />
         </div>
-        <div className={styles.info}>
+        <div>
           <h1 className={styles.title}>Page Not Found</h1>
           <p className={styles.text}>
             We're sorry, the page you requested could not be found.
           </p>
           <p className={styles.text}>Please go back to the homepage.</p>
         </div>
-
         <Link to="/">
-          <Button variant="contained" type="button">Go Home</Button>
+          <Button variant="contained" type="button">
+            Go Home
+          </Button>
         </Link>
       </div>
     </Container>

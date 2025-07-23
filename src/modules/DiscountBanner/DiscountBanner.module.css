@@ -1,1 +1,18 @@
-.wrapper {}
+.discountBanner {
+  max-width: 1440px;
+  width: 100%;
+  aspect-ratio: 1440 / 600;
+  margin: 0 auto;
+  background-image: url(./bgd-img.png);
+  background-size: cover;
+  padding: 5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.title {
+  font-size: 6rem;
+  font-weight: 700;
+  color: #fff;
+}
