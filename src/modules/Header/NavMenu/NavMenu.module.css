@@ -12,3 +12,6 @@
 .link:global(.active) {
   font-weight: 700;
 }
+.link:hover {
+  color: var(--color-text-hover);
+}

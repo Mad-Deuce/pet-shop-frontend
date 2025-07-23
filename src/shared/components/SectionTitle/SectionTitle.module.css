@@ -1,1 +1,39 @@
-.wrapper {}
+.sectionTitle {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var( --color-text-primary);
+}
+
+
+
+
+
+
+
+.line {
+  flex: 1 1 auto;
+  border-top: 1px solid var(--border-color);
+}
+
+.button {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-small);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: var(--grey-text-color);
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.button:hover {
+  filter: brightness(0.9);
+}
+
+.button:active {
+  color: var(--dark-text-color);
+}
