@@ -1,0 +1,62 @@
+{
+  "usesTypeScript": false,
+  "usesStyledComponents": true,
+  "testLibrary": "None",
+  "component": {
+    "default": {
+      "customTemplates": {
+        "component": "../../templates/generate-react-cli/component/TemplateName.jsx",
+        "style": "../../templates/generate-react-cli/component/TemplateName.module.css"
+      },
+      "path": "src/shared/components",
+      "withStyle": true,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
+    },
+    "module": {
+      "customTemplates": {
+        "component": "../../templates/generate-react-cli/component/TemplateName.jsx",
+        "style": "../../templates/generate-react-cli/component/TemplateName.module.css"
+      },
+      "path": "src/modules",
+      "withStyle": true,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
+    },
+    "page": {
+      "customTemplates": {
+        "component": "../../templates/generate-react-cli/component/TemplateName.jsx",
+        "style": "../../templates/generate-react-cli/component/TemplateName.module.css"
+      },
+      "path": "src/pages",
+      "withStyle": true,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
+    },
+    "nav": {
+      "customTemplates": {
+        "component": "../../templates/generate-react-cli/navigation/TemplateName.jsx"
+      },
+      "path": "src/modules",
+      "withStyle": false,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false,
+      "flat": true
+    },
+    "mock": {
+      "customTemplates": {
+        "component": "../../templates/generate-react-cli/mock/TemplateName.jsx",
+        "style": "../../templates/generate-react-cli/mock/TemplateName.module.css"
+      },
+      "path": "src/shared/components",
+      "withStyle": true,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
+    }
+  }
+}
