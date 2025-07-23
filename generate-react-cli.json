@@ -40,7 +40,7 @@
       "customTemplates": {
         "component": "../../templates/generate-react-cli/navigation/TemplateName.jsx"
       },
-      "path": "src/modules",
+      "path": "src/pages",
       "withStyle": false,
       "withTest": false,
       "withStory": false,
