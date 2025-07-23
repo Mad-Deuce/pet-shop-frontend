@@ -8,7 +8,9 @@ export default function App() {
   return (
     <>
       <Header />
-      <Navigation />
+      <main>
+        <Navigation />
+      </main>
       <Footer />
     </>
   );
