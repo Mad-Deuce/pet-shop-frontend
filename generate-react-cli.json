@@ -57,6 +57,17 @@
       "withTest": false,
       "withStory": false,
       "withLazy": false
+    },
+    "icon": {
+      "customTemplates": {
+        "component": "../../templates/generate-react-cli/component/TemplateName.jsx"
+      },
+      "path": "src/shared/components/icons",
+      "withStyle": false,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false,
+      "flat": true
     }
   }
 }
