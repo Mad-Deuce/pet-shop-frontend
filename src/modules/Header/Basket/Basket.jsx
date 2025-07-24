@@ -14,7 +14,7 @@ export default function Basket() {
   return (
     <Link to="/cart" className={styles.basket}>
       <BasketIcon className={styles.icon} />
-      <span className={styles.badge}>{totalCount}</span>
+      {totalCount>0 && <span className={styles.badge}>{totalCount}</span>}
     </Link>
   );
 }

@@ -1,6 +1,6 @@
 import DiscountBanner from "/src/modules/DiscountBanner/DiscountBanner";
 import Categories from "/src/modules/Categories/Categories";
-import FirstOrderForm from "/src/modules/FirstOrderForm/FirstOrderForm";
+import FirstOrderBanner from "/src/modules/FirstOrderBanner/FirstOrderBanner";
 import Products from "/src/modules/Products/Products";
 
 import Container from "/src/shared/components/Container/Container";
@@ -22,7 +22,7 @@ export default function HomePage() {
             Categories
           </SectionTitle>
           <Categories />
-          <FirstOrderForm />
+          <FirstOrderBanner />
           <SectionTitle
             showButton
             buttonLabel="All Sales"

@@ -1,1 +1,25 @@
-.wrapper {}
+.textField {
+}
+
+.input {
+  width: 100%;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-small);
+  font-size: 1.25rem;
+  font-weight: 500;
+  outline: none;
+}
+.input::selection {
+  background-color: var(--color-text-success);
+}
+
+.filled {
+  background-color: var(--color-background-contained);
+  border: solid 1px var(--color-border);
+  color: #fff;
+}
+
+.error {
+  height: 1.25rem;
+  color: var(--color-text-error);
+}

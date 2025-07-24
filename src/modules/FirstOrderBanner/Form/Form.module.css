@@ -1,0 +1,18 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.altMessage {
+  color: var(--color-text-success);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: auto;
+}
+
+.error {
+  height: 1rem;
+  color: var(--color-text-error);
+}

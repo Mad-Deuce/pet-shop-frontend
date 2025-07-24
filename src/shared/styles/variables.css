@@ -7,6 +7,9 @@
   --color-text-primary: #282828;
   --color-text-secondary: #8b8b8b;
   --color-text-hover: #0d50ff;
+  --color-text-error: red;
+  --color-text-success: green;
+
 
   --color-border: #dddddd;
 

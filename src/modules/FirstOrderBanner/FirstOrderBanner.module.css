@@ -1,0 +1,35 @@
+.firstOrderForm {
+  background-color: var(--color-background-contained);
+  border-radius: var(--radius-big);
+  padding: 2rem 2rem 0 2rem;
+  position: relative;
+}
+
+.title {
+  font-size: 4rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.content {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2rem;
+}
+
+.innerContainer {
+  position: relative;
+  display: flex;
+  bottom: 0rem;
+}
+.img {
+  display: block;
+}
+
+.form {
+  position: relative;
+  padding-bottom:2rem;
+  top: 0;
+  bottom: 0;
+}

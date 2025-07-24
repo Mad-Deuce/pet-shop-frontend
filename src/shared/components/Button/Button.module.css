@@ -5,12 +5,34 @@
   font-weight: 600;
   cursor: pointer;
 }
+.button:disabled {
+  background-color: var(--color-text-secondary) !important;
+  color: var(--color-text-primary) !important;
+  cursor: auto;
+}
 
 .contained {
   border: none;
   background-color: var(--color-background-contained);
   color: #fff;
 }
-.contained:hover {
+.contained.active {
+  border: solid 1px var(--color-background-hover);
+  background-color: #fff;
+  color: var(--color-text-primary);
+}
+
+.text {
+  border: none;
+  background-color: #fff;
+  color: var(--color-text-primary);
+}
+.text.active {
+  color: var(--color-background-contained);
+}
+
+.contained:hover,
+.text:hover {
   background-color: var(--color-background-hover);
+  color: #fff;
 }
