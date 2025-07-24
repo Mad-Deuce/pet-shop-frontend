@@ -6,13 +6,14 @@ import { useState } from "react";
 import Button from "/src/shared/components/Button/Button";
 import TextField from "/src/shared/components/TextField/TextField";
 
+import useFetch from "/src/shared/hooks/useFetch";
 import { defaultValues, fields, registerSchema } from "./fields";
 import { saleSendApi } from "/src/shared/api/salesApi";
 
 import styles from "./Form.module.css";
 
 export default function Form({ className }) {
-  const [active, setActive] = useState(false);
+  const [isFirstOrder, setIsFirstOrder] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -32,22 +33,20 @@ export default function Form({ className }) {
   const onSubmit = async (values) => {
     setLoading(true);
     setError(null);
-    const { data, error } = await saleSendApi(values);
-    console.log("data: ", data);
-
+    const { error } = await saleSendApi(values);
     setLoading(false);
     if (error) {
       return setError(error.message || error.response.data.message);
     }
     reset();
-    setActive(true);
+    setIsFirstOrder(false);
   };
 
   return (
     <>
       {loading && <p className={styles.altMessage}>submitting...</p>}
-      {active && <p className={styles.altMessage}>Request Submitted</p>}{" "}
-      {!loading && !active && (
+      {!isFirstOrder && <p className={styles.altMessage}>Request Submitted</p>}
+      {isFirstOrder && !loading && (
         <form className={fullClassName} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.inputsGroup}>
             <TextField
@@ -73,10 +72,10 @@ export default function Form({ className }) {
           <Button
             type="submit"
             variant="text"
-            active={active}
+            active={!isFirstOrder}
             disabled={!isValid}
           >
-            {active ? "Request Submitted" : "Get a discount"}
+            {!isFirstOrder ? "Request Submitted" : "Get a discount"}
           </Button>
         </form>
       )}
