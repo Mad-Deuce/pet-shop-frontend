@@ -1,1 +1,31 @@
-.wrapper {}
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.divider {
+  width: 1rem;
+  border-top: solid 1px var(--color-border);
+}
+
+.link {
+  color: var(--color-text-secondary);
+  padding: 0.5rem 1rem;
+  border: solid 1px var(--color-border);
+  border-radius: var(--radius-small);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.link:hover {
+  background-color: var(--color-background-footer);
+}
+
+.active {
+  color: var(--color-text-primary);
+}

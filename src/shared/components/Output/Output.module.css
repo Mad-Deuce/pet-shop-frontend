@@ -1,0 +1,24 @@
+.output {
+}
+
+.loading {
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--color-text-hover);
+}
+
+.error {
+  padding: 2rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-error);
+}
+
+.altMessage {
+  padding: 2rem 0;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}

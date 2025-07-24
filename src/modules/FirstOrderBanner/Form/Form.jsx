@@ -14,7 +14,6 @@ import styles from "./Form.module.css";
 export default function Form({ className }) {
   const dispatch = useDispatch();
   const { isFirstOrder, loading, error } = useSelector(selectIsFirstOrder);
-  console.log(isFirstOrder);
 
   const fullClassName = `${styles.form} ${className}`;
 
