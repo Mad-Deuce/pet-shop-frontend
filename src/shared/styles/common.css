@@ -12,6 +12,3 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-main {
-  padding-block: 2.5rem;
-}
