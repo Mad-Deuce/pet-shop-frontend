@@ -1,21 +1,20 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import Button from "/src/shared/components/Button/Button";
 import TextField from "/src/shared/components/TextField/TextField";
 
-import useFetch from "/src/shared/hooks/useFetch";
 import { defaultValues, fields, registerSchema } from "./fields";
-import { saleSendApi } from "/src/shared/api/salesApi";
+import { selectIsFirstOrder } from "/src/redux/first-order/first-order-selectors";
+import { sendFirstOrderThunk } from "/src/redux/first-order/first-order-thunk";
 
 import styles from "./Form.module.css";
 
 export default function Form({ className }) {
-  const [isFirstOrder, setIsFirstOrder] = useState(true);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const { isFirstOrder, loading, error } = useSelector(selectIsFirstOrder);
+  console.log(isFirstOrder);
 
   const fullClassName = `${styles.form} ${className}`;
 
@@ -31,15 +30,8 @@ export default function Form({ className }) {
   });
 
   const onSubmit = async (values) => {
-    setLoading(true);
-    setError(null);
-    const { error } = await saleSendApi(values);
-    setLoading(false);
-    if (error) {
-      return setError(error.message || error.response.data.message);
-    }
+    dispatch(sendFirstOrderThunk(values));
     reset();
-    setIsFirstOrder(false);
   };
 
   return (

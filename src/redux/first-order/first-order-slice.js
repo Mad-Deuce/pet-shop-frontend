@@ -1,51 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import {
-  fetchTodoThunk,
-  addTodoThunk,
-  deleteTodoThunk,
-  toggleCompletedTodoThunk,
-} from "./todo-thunks";
+import { sendFirstOrderThunk } from "./first-order-thunk";
 
-import { pending, rejected } from "../../shared/utils/redux";
+import { pending, rejected } from "/src/shared/lib/redux";
 
-const toDoInitialState = {
+const firstOrderState = {
   loading: false,
   error: null,
-  items: [],
+  isFirstOrder: true,
 };
 
-const todoSlice = createSlice({
-  name: "todo",
-  initialState: toDoInitialState,
+const firstOrderSlice = createSlice({
+  name: "sale",
+  initialState: firstOrderState,
   extraReducers: (builder) => {
     builder
-      .addCase(fetchTodoThunk.pending, pending)
-      .addCase(fetchTodoThunk.fulfilled, (store, { payload }) => {
+      .addCase(sendFirstOrderThunk.pending, pending)
+      .addCase(sendFirstOrderThunk.fulfilled, (store) => {
         store.loading = false;
-        store.items = payload;
+        store.isFirstOrder = false;
       })
-      .addCase(fetchTodoThunk.rejected, rejected)
-      .addCase(addTodoThunk.pending, pending)
-      .addCase(addTodoThunk.fulfilled, (store, { payload }) => {
-        store.loading = false;
-        store.items.push(payload);
-      })
-      .addCase(addTodoThunk.rejected, rejected)
-      .addCase(deleteTodoThunk.pending, pending)
-      .addCase(deleteTodoThunk.fulfilled, (store, { payload }) => {
-        store.loading = false;
-        store.items = store.items.filter((item) => item.id !== payload);
-      })
-      .addCase(deleteTodoThunk.rejected, rejected)
-      .addCase(toggleCompletedTodoThunk.pending, pending)
-      .addCase(toggleCompletedTodoThunk.fulfilled, (store, { payload }) => {
-        store.loading = false;
-        const todo = store.items.find((item) => item.id === payload);
-        todo.completed = !todo.completed;
-      })
-      .addCase(toggleCompletedTodoThunk.rejected, rejected);
+      .addCase(sendFirstOrderThunk.rejected, rejected)
   },
 });
 
-export default todoSlice.reducer; 
+export default firstOrderSlice.reducer; 
