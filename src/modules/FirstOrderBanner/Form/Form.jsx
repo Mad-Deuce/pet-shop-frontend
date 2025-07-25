@@ -41,18 +41,21 @@ export default function Form({ className }) {
         <form className={fullClassName} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.inputsGroup}>
             <TextField
+              className={styles.input}
               variant="filled"
               register={register}
               {...fields.name}
               error={errors.name}
             />
             <TextField
+              className={styles.input}
               variant="filled"
               register={register}
               {...fields.phone}
               error={errors.phone}
             />
             <TextField
+              className={styles.input}
               variant="filled"
               register={register}
               {...fields.email}

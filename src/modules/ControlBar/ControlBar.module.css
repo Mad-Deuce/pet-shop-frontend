@@ -1,0 +1,27 @@
+.controlBar {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.textField {
+  padding: 0.5rem 1rem;
+  width: 7rem;
+}
+.textField::-webkit-outer-spin-button,
+.textField::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -2,11 +2,10 @@
 }
 
 .input {
-  width: 100%;
   padding: 1rem 2rem;
-  border-radius: var(--radius-small);
   font-size: 1.25rem;
   font-weight: 500;
+  border-radius: var(--radius-small);
   outline: none;
 }
 .input::selection {
@@ -17,6 +16,12 @@
   background-color: var(--color-background-contained);
   border: solid 1px var(--color-border);
   color: #fff;
+}
+
+.outlined {
+  background-color: #fff;
+  border: solid 1px var(--color-border);
+  color: var(--color-text-primary);
 }
 
 .error {
