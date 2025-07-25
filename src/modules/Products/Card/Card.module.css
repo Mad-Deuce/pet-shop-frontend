@@ -1,14 +1,17 @@
 .card {
   border-radius: var(--radius-big);
   border: solid 2px var(--color-border);
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
 }
 
 .card:hover {
   filter: brightness(1.1);
   border: solid 2px var(--color-text-secondary);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .imgWrapper {
@@ -19,7 +22,6 @@
   width: 100%;
   border-radius: var(--radius-big);
   object-fit: contain;
-  /* aspect-ratio: 284 / 316; */
   aspect-ratio: 316 / 284;
 }
 
@@ -31,7 +33,7 @@
 .button {
   display: none;
   position: absolute;
-  bottom: 1rem;
+  bottom: 9rem;
   left: 1rem;
   right: 1rem;
 }
