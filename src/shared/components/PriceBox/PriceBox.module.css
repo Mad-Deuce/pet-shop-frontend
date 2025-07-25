@@ -1,0 +1,23 @@
+.priceBox {
+  display: flex;
+  align-items: baseline;
+}
+.priceBox.small {
+  gap: 1rem;
+}
+
+.currentPrice {
+}
+.currentPrice.small {
+  color: var(--color-text-primary);
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.previousPrice {
+}
+.previousPrice.small {
+  color: var(--color-text-secondary);
+  font-size: 1.25rem;
+  font-weight: 500;
+}

@@ -1,8 +1,10 @@
 import axios from "axios";
 
-import { URL } from "./config.js"
 import { fetchDecorator } from "/src/shared/lib/fetchDecorator";
 
-const instance = axios.create({ baseURL: URL + "sale" });
+const { VITE_API_URL: baseURL } = import.meta.env;
 
-export const saleSendApi = fetchDecorator((payload) => instance.post("/send", { payload }));
+const instance = axios.create({ baseURL});
+
+export const saleSendApi = fetchDecorator((payload) => instance.post("sale/send", { payload }));
+ 

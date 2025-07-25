@@ -12,6 +12,7 @@ export default function Navigation() {
       <Route path="/" element={<HomePage />} />
       <Route path="/categories" element={<CategoriesPage />} />
       <Route path="/categories/:id" element={<ProductsPage />} />
+      <Route path="/products/all" element={<ProductsPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

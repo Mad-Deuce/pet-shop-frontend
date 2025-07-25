@@ -21,6 +21,11 @@
   background-color: #fff;
   color: var(--color-text-primary);
 }
+.outlined {
+  border: solid 1px var(--color-text-primary);
+  background-color: #fff;
+  color: var(--color-text-primary);
+}
 
 .text {
   border: none;
@@ -32,6 +37,7 @@
 }
 
 .contained:hover,
+.outlined:hover,
 .text:hover {
   background-color: var(--color-background-hover);
   color: #fff;

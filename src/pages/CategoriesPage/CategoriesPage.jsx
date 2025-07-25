@@ -13,7 +13,7 @@ import styles from "./CategoriesPage.module.css";
 
 export default function CategoriesPage() {
 
-  const { state, error, loading } = useFetch({
+  const { state: categories, error, loading } = useFetch({
     request: useCallback(() => getAllCategoriesApi(), []),
     initialState: [],
   });
@@ -37,10 +37,10 @@ export default function CategoriesPage() {
         <Output
           error={error}
           loading={loading}
-          condition={Boolean(state.length)}
+          condition={Boolean(categories.length)}
           altMessage="No categories available"
         >
-          <Categories categories={state} />
+          <Categories categories={categories} />
         </Output>
       </div>
     </Container>
