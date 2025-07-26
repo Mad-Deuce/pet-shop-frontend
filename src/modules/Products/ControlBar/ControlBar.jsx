@@ -5,16 +5,15 @@ import CheckBox from "/src/shared/components/CheckBox/CheckBox";
 import TextField from "/src/shared/components/TextField/TextField";
 import Select from "/src/shared/components/Select/Select";
 
-import { fields } from "./fields";
+import { fields, defaultValues } from "./fields";
 
 import styles from "./ControlBar.module.css";
 
-export default function ControlBar() {
+export default function ControlBar({ handleFilterChange }) {
   const { register, watch, setValue } = useForm();
-
   useEffect(() => {
     const subscription = watch((value) => {
-      console.log(value);
+      handleFilterChange(value);
     });
 
     return () => subscription.unsubscribe();
@@ -49,7 +48,12 @@ export default function ControlBar() {
       </div>
       <div className={styles.inputGroup}>
         <p className={styles.label}>Sorted</p>
-        <Select {...fields.sort} register={register} setValue={setValue} />
+        <Select
+          {...fields.sort}
+          register={register}
+          setValue={setValue}
+          defaultValue={defaultValues.sort}
+        />
       </div>
     </div>
   );

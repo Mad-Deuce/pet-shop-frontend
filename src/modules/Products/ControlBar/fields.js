@@ -6,8 +6,8 @@ export const defaultValues = {
   discounted: false,
   sort:
   {
-    text: "by default",
-    value: "",
+    label: "by default",
+    value: "default",
   },
 };
 
@@ -33,7 +33,7 @@ export const fields = {
     placeholder: "",
     options: [{
       label: "by default",
-      value: "",
+      value: "default",
     },
     {
       label: "newest",

@@ -1,3 +1,9 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
 .products {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

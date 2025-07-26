@@ -1,4 +1,5 @@
 import ReactSelect from "react-select";
+import { useEffect } from "react";
 
 import styles from "./Select.module.css";
 
@@ -46,9 +47,19 @@ export default function Select({
   setValue,
   name,
   options,
+  defaultValue,
   ...props
 }) {
   const fullClassName = `${styles.select} ${className} `;
+
+  useEffect(() => {
+    setValue(name, defaultValue);
+  }, [setValue, defaultValue, name]);
+
+  const handleChange = (value) => {
+    console.log("handleChange: ", value);
+    setValue(name, value);
+  };
 
   return (
     <ReactSelect
@@ -59,7 +70,8 @@ export default function Select({
       {...props}
       defaultValue={options[0]}
       options={options}
-      onChange={(value) => setValue(name, value)}
+      onChange={(value) => handleChange(value)}
+      name={name}
     />
   );
 }

@@ -15,6 +15,7 @@
 }
 
 .previousPrice {
+  text-decoration: line-through;
 }
 .previousPrice.small {
   color: var(--color-text-secondary);

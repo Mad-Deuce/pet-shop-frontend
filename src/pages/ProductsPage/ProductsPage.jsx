@@ -1,6 +1,5 @@
 import { useCallback } from "react";
 
-import ControlBar from "/src/modules/ControlBar/ControlBar";
 import Products from "/src/modules/Products/Products";
 
 import BreadCrumbs from "/src/shared/components/BreadCrumbs/BreadCrumbs";
@@ -13,6 +12,17 @@ import { getAllProductsApi } from "/src/shared/api/productsApi";
 
 import styles from "./ProductsPage.module.css";
 
+const breadcrumbs = [
+  {
+    href: "/",
+    title: "Main Page",
+  },
+  {
+    href: "/products/all",
+    title: "All products",
+  },
+];
+
 export default function ProductsPage() {
   const {
     state: products,
@@ -23,23 +33,13 @@ export default function ProductsPage() {
     initialState: [],
   });
 
-  const breadcrumbs = [
-    {
-      href: "/",
-      title: "Main Page",
-    },
-    {
-      href: "/products/all",
-      title: "All products",
-    },
-  ];
+ 
 
   return (
     <Container>
       <div className={styles.productsPage}>
         <BreadCrumbs breadcrumbs={breadcrumbs} />
         <SectionTitle>All products</SectionTitle>
-        <ControlBar />
         <Output
           error={error}
           loading={loading}
