@@ -1,0 +1,6 @@
+.productsPage {
+  padding-block: 2.5rem 7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
