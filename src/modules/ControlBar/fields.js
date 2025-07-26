@@ -7,7 +7,7 @@ export const defaultValues = {
   sort:
   {
     text: "by default",
-    value: null,
+    value: "",
   },
 };
 
@@ -24,7 +24,7 @@ export const fields = {
   },
   discounted: {
     name: "discounted",
-    type: "checkbox",
+    type: "",
     placeholder: "",
   },
   sort: {
@@ -32,19 +32,19 @@ export const fields = {
     type: "",
     placeholder: "",
     options: [{
-      text: "by default",
-      value: null,
+      label: "by default",
+      value: "",
     },
     {
-      text: "newest",
+      label: "newest",
       value: "newest",
     },
     {
-      text: "price: high-low",
+      label: "price: high-low",
       value: "price_desc",
     },
     {
-      text: "price: low-high",
+      label: "price: low-high",
       value: "price_asc",
     },]
   },

@@ -18,7 +18,6 @@ export default function CheckBox({
   } `;
   return (
     <div
-      type="checkbox"
       className={fullClassName}
       {...register(name)}
       {...props}

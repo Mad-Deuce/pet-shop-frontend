@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
-import { defaultValues, fields, registerSchema } from "./fields";
 
 import CheckBox from "/src/shared/components/CheckBox/CheckBox";
 import TextField from "/src/shared/components/TextField/TextField";
 import Select from "/src/shared/components/Select/Select";
+
+import { fields } from "./fields";
 
 import styles from "./ControlBar.module.css";
 
@@ -48,7 +49,7 @@ export default function ControlBar() {
       </div>
       <div className={styles.inputGroup}>
         <p className={styles.label}>Sorted</p>
-        <Select />
+        <Select {...fields.sort} register={register} setValue={setValue} />
       </div>
     </div>
   );

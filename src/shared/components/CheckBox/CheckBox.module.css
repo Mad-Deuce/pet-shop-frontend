@@ -5,6 +5,7 @@
 
   border-radius: var(--radius-small);
   border: solid 1px var(--color-border);
+  cursor: pointer;
 }
 
 .checkBox:hover {
