@@ -24,7 +24,7 @@ export const fields = {
   },
   discounted: {
     name: "discounted",
-    type: "",
+    type: "checkbox",
     placeholder: "",
   },
   sort: {

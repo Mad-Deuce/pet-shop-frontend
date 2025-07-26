@@ -9,14 +9,13 @@ import Select from "/src/shared/components/Select/Select";
 import styles from "./ControlBar.module.css";
 
 export default function ControlBar() {
-  const { register, watch } = useForm();
+  const { register, watch, setValue } = useForm();
 
   useEffect(() => {
     const subscription = watch((value) => {
       console.log(value);
     });
 
-    
     return () => subscription.unsubscribe();
   }, [watch]);
 
@@ -41,7 +40,11 @@ export default function ControlBar() {
       </div>
       <div className={styles.inputGroup}>
         <p className={styles.label}>Discounted items</p>
-        <CheckBox />
+        <CheckBox
+          {...fields.discounted}
+          register={register}
+          setValue={setValue}
+        />
       </div>
       <div className={styles.inputGroup}>
         <p className={styles.label}>Sorted</p>
