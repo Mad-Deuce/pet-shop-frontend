@@ -11,6 +11,7 @@ import SectionTitle from "/src/shared/components/SectionTitle/SectionTitle";
 
 import useFetch from "/src/shared/hooks/useFetch";
 import { getPopularCategoriesApi } from "/src/shared/api/categoriesApi";
+import { getPopularProductsApi } from "/src/shared/api/productsApi";
 
 import styles from "./HomePage.module.css";
 
@@ -23,6 +24,19 @@ export default function HomePage() {
   } = useFetch({
     request: useCallback(
       () => getPopularCategoriesApi(popularCategoriesParams.current),
+      []
+    ),
+    initialState: [],
+  });
+
+  const popularProductsParams = useRef({ page: 1, perPage: 4 });
+  const {
+    state: products,
+    error: productsError,
+    loading: productsLoading,
+  } = useFetch({
+    request: useCallback(
+      () => getPopularProductsApi(popularProductsParams.current),
       []
     ),
     initialState: [],
@@ -46,14 +60,26 @@ export default function HomePage() {
             condition={true}
             altMessage="No popular categories available"
           >
-            <Categories categories={categories} />
+            <Categories limit={4} categories={categories} />
           </Output>
 
           <FirstOrderBanner />
           <SectionTitle showButton buttonLabel="All Sales" buttonLink="/sales">
             Sale
           </SectionTitle>
-          <Products />
+          <Output
+            error={productsError}
+            loading={productsLoading}
+            condition={true}
+            altMessage="No popular categories available"
+          >
+            <Products
+              products={products}
+              limit={4}
+              showControl={false}
+              onlyDiscounted={true}
+            />
+          </Output>
         </div>
       </Container>
     </div>

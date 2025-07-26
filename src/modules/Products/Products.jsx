@@ -9,9 +9,18 @@ import { sortTypes } from "./ControlBar/sortTypes";
 
 import styles from "./Products.module.css";
 
-export default function Products({ products }) {
+export default function Products({
+  products,
+  limit = 50,
+  showControl = true,
+  onlyDiscounted = false,
+}) {
   const dispatch = useDispatch();
-  const [filteredProducts, setFilteredProducts] = useState(products);
+  const [filteredProducts, setFilteredProducts] = useState(
+    products.filter(({ discont_price }) =>
+      onlyDiscounted ? Boolean(discont_price) : true
+    )
+  );
 
   const handleClick = (product) => {
     dispatch(addToCart(product));
@@ -20,6 +29,9 @@ export default function Products({ products }) {
   const handleFilterChange = ({ priceFrom, priceTo, discounted, sort }) => {
     setFilteredProducts(
       products
+        .filter(({ discont_price }) =>
+          onlyDiscounted ? Boolean(discont_price) : true
+        )
         .filter(({ price, discont_price }) => {
           const currentPrice = discont_price ? discont_price : price;
           return priceFrom && priceFrom != ""
@@ -39,14 +51,16 @@ export default function Products({ products }) {
     );
   };
 
-  const elements = filteredProducts?.map((item) => (
-    <Card key={item.id} product={item} handleClick={handleClick} />
-  ));
+  const elements = filteredProducts
+    ?.slice(0, limit)
+    .map((item) => (
+      <Card key={item.id} product={item} handleClick={handleClick} />
+    ));
 
   return (
     <div className={styles.wrapper}>
-      <ControlBar handleFilterChange={handleFilterChange} />
-      <div className={styles.products}>{elements}</div>;
+      {showControl && <ControlBar handleFilterChange={handleFilterChange} />}
+      <div className={styles.products}>{elements}</div>
     </div>
   );
 }

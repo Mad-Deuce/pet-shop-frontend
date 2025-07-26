@@ -10,7 +10,7 @@ import Output from "/src/shared/components/Output/Output";
 import useFetch from "/src/shared/hooks/useFetch";
 import { getAllProductsApi } from "/src/shared/api/productsApi";
 
-import styles from "./ProductsPage.module.css";
+import styles from "./AllProductsPage.module.css";
 
 const breadcrumbs = [
   {
