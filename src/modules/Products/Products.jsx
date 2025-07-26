@@ -59,7 +59,12 @@ export default function Products({
 
   return (
     <div className={styles.wrapper}>
-      {showControl && <ControlBar handleFilterChange={handleFilterChange} />}
+      {showControl && (
+        <ControlBar
+          handleFilterChange={handleFilterChange}
+          onlyDiscounted={onlyDiscounted}
+        />
+      )}
       <div className={styles.products}>{elements}</div>
     </div>
   );

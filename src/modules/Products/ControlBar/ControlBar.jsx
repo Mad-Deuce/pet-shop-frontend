@@ -9,7 +9,10 @@ import { fields, defaultValues } from "./fields";
 
 import styles from "./ControlBar.module.css";
 
-export default function ControlBar({ handleFilterChange }) {
+export default function ControlBar({
+  handleFilterChange,
+  onlyDiscounted = false,
+}) {
   const { register, watch, setValue } = useForm();
   useEffect(() => {
     const subscription = watch((value) => {
@@ -38,14 +41,16 @@ export default function ControlBar({ handleFilterChange }) {
           className={styles.textField}
         />
       </div>
-      <div className={styles.inputGroup}>
-        <p className={styles.label}>Discounted items</p>
-        <CheckBox
-          {...fields.discounted}
-          register={register}
-          setValue={setValue}
-        />
-      </div>
+      {!onlyDiscounted && (
+        <div className={styles.inputGroup}>
+          <p className={styles.label}>Discounted items</p>
+          <CheckBox
+            {...fields.discounted}
+            register={register}
+            setValue={setValue}
+          />
+        </div>
+      )}
       <div className={styles.inputGroup}>
         <p className={styles.label}>Sorted</p>
         <Select
