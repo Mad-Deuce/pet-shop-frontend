@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFetch = ({ request, initialState }) => {
+const useFetch = ({ request, initialState, dependency }) => {
   const [state, setState] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -17,7 +17,7 @@ const useFetch = ({ request, initialState }) => {
     };
 
     fetchItems();
-  }, [request]);
+  }, [request, dependency]);
 
   return { state, setState, loading, setLoading, error, setError };
 };
