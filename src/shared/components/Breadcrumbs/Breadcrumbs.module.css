@@ -28,4 +28,5 @@
 
 .active {
   color: var(--color-text-primary);
+  pointer-events: none;
 }

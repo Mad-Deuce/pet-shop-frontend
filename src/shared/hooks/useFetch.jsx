@@ -6,6 +6,7 @@ const useFetch = ({ request, initialState }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!request) return;
     const fetchItems = async () => {
       setLoading(true);
       setError(null);

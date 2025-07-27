@@ -57,7 +57,6 @@ export default function ProductsByCategoryPage() {
           <Products products={response?.data} />
         </Output>
       </div>
-      ;
     </Container>
   );
 }

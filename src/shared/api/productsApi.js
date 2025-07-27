@@ -13,3 +13,5 @@ export const getAllProductsApi = fetchDecorator((params = defaultParams) => inst
 export const getPopularProductsApi = fetchDecorator((params = defaultParams) => instance.get("products/all", { params: { ...params } }));
 
 export const getProductsByCategoryApi = fetchDecorator((categoryId, params = defaultParams) => instance.get("categories/" + categoryId, { params: { ...params } }));
+
+export const getProductByIdApi = fetchDecorator((productId) => instance.get("products/" + productId));
