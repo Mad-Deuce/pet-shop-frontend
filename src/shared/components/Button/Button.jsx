@@ -15,7 +15,7 @@ export default function Button({
   return (
     <button
       className={fullClassName}
-      onClick={() => handleClick(event)}
+      onClick={() => handleClick()}
       {...props}
     >
       {children}

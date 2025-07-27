@@ -48,12 +48,20 @@ const cartSlice = createSlice({
         store.splice(index, 1);
       }
     },
+    updateInCart: (store, { payload }) => {
+      const product = store.find((item) => item.id === payload.id);
+      if (product) {
+        product.count = payload.count;
+      } else {
+        store.push({ ...payload });
+      }
+    },
     deleteFromCart: (store, { payload }) =>
       store.filter((item) => item.id !== payload),
   },
 });
 
-export const { addToCart, increaseInCart, decreaseInCart, deleteFromCart } =
+export const { addToCart, increaseInCart, decreaseInCart, deleteFromCart, updateInCart } =
   cartSlice.actions;
 
 export default cartSlice.reducer;

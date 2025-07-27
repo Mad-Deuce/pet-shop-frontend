@@ -5,20 +5,31 @@
 .priceBox.small {
   gap: 1rem;
 }
+.priceBox.big {
+  gap: 2rem;
+}
 
 .currentPrice {
+  color: var(--color-text-primary);
 }
 .currentPrice.small {
-  color: var(--color-text-primary);
   font-size: 2.5rem;
   font-weight: 600;
+}
+.currentPrice.big {
+  font-size: 4rem;
+  font-weight: 700;
 }
 
 .previousPrice {
   text-decoration: line-through;
+  color: var(--color-text-secondary);
 }
 .previousPrice.small {
-  color: var(--color-text-secondary);
   font-size: 1.25rem;
+  font-weight: 500;
+}
+.previousPrice.big {
+  font-size: 2.5rem;
   font-weight: 500;
 }
