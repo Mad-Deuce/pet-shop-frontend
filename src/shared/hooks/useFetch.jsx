@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFetch = ({ request, initialState, dependency }) => {
+const useFetch = ({ request, initialState, params }) => {
   const [state, setState] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -10,14 +10,14 @@ const useFetch = ({ request, initialState, dependency }) => {
     const fetchItems = async () => {
       setLoading(true);
       setError(null);
-      const { data, error } = await request();
+      const { data, error } = await request(params);
       setLoading(false);
       if (data) return setState(data);
       setError(error.response?.data?.message || error.message);
     };
 
     fetchItems();
-  }, [request, dependency]);
+  }, [request, params]);
 
   return { state, setState, loading, setLoading, error, setError };
 };

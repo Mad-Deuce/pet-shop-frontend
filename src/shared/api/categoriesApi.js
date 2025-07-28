@@ -6,10 +6,8 @@ const { VITE_API_URL: baseURL } = import.meta.env;
 
 const instance = axios.create({ baseURL });
 
-const defaultParams = { page: 1, perPage: 100 }
+export const getAllCategoriesApi = fetchDecorator(() => instance.get("categories"));
 
-export const getAllCategoriesApi = fetchDecorator((params = defaultParams) => instance.get("categories/all", { params: { ...params } }));
-
-export const getPopularCategoriesApi = fetchDecorator((params = defaultParams) => instance.get("categories/all", { params: { ...params } }));
+export const getPopularCategoriesApi = fetchDecorator(() => instance.get("categories/popular"));
 
 export const getCategoryByIdApi = fetchDecorator((categoryId) => instance.get("categories/" + categoryId));

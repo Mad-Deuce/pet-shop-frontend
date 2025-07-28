@@ -13,22 +13,22 @@ export const defaultValues = {
 
 export const fields = {
   priceFrom: {
-    name: "priceFrom",
+    name: "minPrice",
     type: "number",
     placeholder: "from",
   },
   priceTo: {
-    name: "priceTo",
+    name: "maxPrice",
     type: "number",
     placeholder: "to",
   },
   discounted: {
-    name: "discounted",
+    name: "discont",
     type: "",
     placeholder: "",
   },
   sort: {
-    name: "sort",
+    name: "sortBy",
     type: "",
     placeholder: "",
     options: [{
@@ -41,11 +41,11 @@ export const fields = {
     },
     {
       label: "price: high-low",
-      value: "price_desc",
+      value: "priceHigh",
     },
     {
       label: "price: low-high",
-      value: "price_asc",
+      value: "priceLow",
     },]
   },
 };

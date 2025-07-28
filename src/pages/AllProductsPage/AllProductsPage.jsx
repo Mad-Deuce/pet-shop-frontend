@@ -1,6 +1,7 @@
-import { useCallback } from "react";
+import {  useState } from "react";
 
 import Products from "/src/modules/Products/Products";
+import ControlBar from "/src/modules/Products/ControlBar/ControlBar";
 
 import BreadCrumbs from "/src/shared/components/BreadCrumbs/BreadCrumbs";
 import SectionTitle from "/src/shared/components/SectionTitle/SectionTitle";
@@ -24,29 +25,55 @@ const breadcrumbs = [
 ];
 
 export default function ProductsPage() {
+  const [params, setParams] = useState({});
+
   const {
-    state: products,
+    state: { products },
     error,
     loading,
   } = useFetch({
-    request: useCallback(() => getAllProductsApi(), []),
+    request: getAllProductsApi,
     initialState: [],
+    params: params,
   });
 
- 
+  const handleFilterChange = (filter) => {
+    const modifyFilter = { ...filter };
+    if (!modifyFilter.minPrice) {
+      delete modifyFilter.minPrice;
+    }
+    if (!modifyFilter.maxPrice) {
+      delete modifyFilter.maxPrice;
+    }
+    if (!modifyFilter.discont) {
+      delete modifyFilter.discont;
+    }
+    modifyFilter.sortBy = modifyFilter.sortBy.value;
+    console.log("filteredValue: ", modifyFilter);
+
+    setParams(modifyFilter);
+  };
 
   return (
     <Container>
       <div className={styles.productsPage}>
         <BreadCrumbs breadcrumbs={breadcrumbs} />
         <SectionTitle>All products</SectionTitle>
+        <ControlBar
+          handleFilterChange={handleFilterChange}
+          onlyDiscounted={false}
+        />
+
         <Output
           error={error}
           loading={loading}
-          condition={Boolean(products.length)}
+          condition={Boolean(products?.length)}
           altMessage="No products available"
         >
-          <Products products={products} />
+          <Products
+            products={products}
+            handleFilterChange={handleFilterChange}
+          />
         </Output>
       </div>
       ;

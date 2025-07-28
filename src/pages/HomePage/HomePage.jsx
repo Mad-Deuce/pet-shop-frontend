@@ -1,4 +1,4 @@
-import { useCallback, useRef } from "react";
+import { useCallback } from "react";
 
 import DiscountBanner from "/src/modules/DiscountBanner/DiscountBanner";
 import Categories from "/src/modules/Categories/Categories";
@@ -16,27 +16,25 @@ import { getPopularProductsApi } from "/src/shared/api/productsApi";
 import styles from "./HomePage.module.css";
 
 export default function HomePage() {
-  const popularCategoriesParams = useRef({ page: 1, perPage: 4 });
   const {
     state: categories,
     error: categoriesError,
     loading: categoriesLoading,
   } = useFetch({
     request: useCallback(
-      () => getPopularCategoriesApi(popularCategoriesParams.current),
+      () => getPopularCategoriesApi(),
       []
     ),
     initialState: [],
   });
 
-  const popularProductsParams = useRef({ page: 1, perPage: 4 });
   const {
-    state: products,
+    state: { products },
     error: productsError,
     loading: productsLoading,
   } = useFetch({
     request: useCallback(
-      () => getPopularProductsApi(popularProductsParams.current),
+      () => getPopularProductsApi(),
       []
     ),
     initialState: [],

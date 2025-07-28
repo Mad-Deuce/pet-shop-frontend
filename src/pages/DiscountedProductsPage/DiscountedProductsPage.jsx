@@ -8,7 +8,7 @@ import Container from "/src/shared/components/Container/Container";
 import Output from "/src/shared/components/Output/Output";
 
 import useFetch from "/src/shared/hooks/useFetch";
-import { getAllProductsApi } from "/src/shared/api/productsApi";
+import { getDiscontedProductsApi } from "/src/shared/api/productsApi";
 
 
 import styles from "./DiscountedProductsPage.module.css";
@@ -26,11 +26,11 @@ const breadcrumbs = [
 
 export default function DiscountedProductsPage() {
   const {
-      state: products,
+      state: {products},
       error,
       loading,
     } = useFetch({
-      request: useCallback(() => getAllProductsApi(), []),
+      request: useCallback(() => getDiscontedProductsApi(), []),
       initialState: [],
     });
   
@@ -44,7 +44,7 @@ export default function DiscountedProductsPage() {
           <Output
             error={error}
             loading={loading}
-            condition={Boolean(products.length)}
+            condition={Boolean(products?.length)}
             altMessage="No products available"
           >
             <Products products={products} onlyDiscounted={true}/>
