@@ -13,8 +13,8 @@ import styles from "./Card.module.css";
 const { VITE_API_URL: baseURL } = import.meta.env;
 
 export default function Card({ product, handleClick }) {
-  const cart = useSelector(selectCart);
-  const isInCart = cart.some((item) => item.id === product.id);
+  const {products: productsInCart} = useSelector(selectCart);
+  const isInCart = productsInCart.some((item) => item.id === product.id);
 
   const percentageDiscont = getPercentageDiscont(
     product.price,

@@ -8,13 +8,15 @@ import { BasketIcon } from "/src/shared/components/icons";
 import styles from "./Basket.module.css";
 
 export default function Basket() {
-  const cart = useSelector(selectCart);
-  const totalCount = cart.reduce((acc, { count }) => acc + count, 0);
+  const { products: productsInCart } = useSelector(selectCart);
+  console.log(productsInCart);
+
+  const totalCount = productsInCart.reduce((acc, { count }) => acc + count, 0);
 
   return (
     <Link to="/cart" className={styles.basket}>
       <BasketIcon className={styles.icon} />
-      {totalCount>0 && <span className={styles.badge}>{totalCount}</span>}
+      {totalCount > 0 && <span className={styles.badge}>{totalCount}</span>}
     </Link>
   );
 }

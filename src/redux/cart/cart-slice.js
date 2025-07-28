@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const cartSlice = createSlice({
-  name: "cart",
-  initialState: [
+const cartState = {
+  loading: false,
+  error: null,
+  products: [
     {
       "id": 1,
       "title": "BELCANDO Mini Dog Food",
@@ -28,6 +29,11 @@ const cartSlice = createSlice({
       count: 5,
     },
   ],
+};
+
+const cartSlice = createSlice({
+  name: "cart",
+  initialState: cartState,
   reducers: {
     addToCart: (store, { payload }) => {
       const product = store.find((item) => item.id === payload.id);
