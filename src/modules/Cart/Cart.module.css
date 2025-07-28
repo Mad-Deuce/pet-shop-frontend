@@ -35,3 +35,11 @@
   font-weight: 700;
   line-height: 1.1;
 }
+.altCart {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.altCartMessage{
+  font-size: 1.25rem;
+}

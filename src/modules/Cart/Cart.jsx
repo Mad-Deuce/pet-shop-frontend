@@ -9,6 +9,8 @@ import Card from "./Card/Card";
 import styles from "./Cart.module.css";
 
 export default function Cart({ cart = [], onSubmit }) {
+  console.log(cart);
+
   const totalItems = cart.products.reduce((acc, { count }) => acc + count, 0);
   const totalCost = cart.products.reduce(
     (acc, { count, price, discont_price }) =>
@@ -45,10 +47,12 @@ export default function Cart({ cart = [], onSubmit }) {
           </div>
         </div>
       ) : (
-        <div>
-          <p>Looks like you have no items in your basket currently.</p>
+        <div className={styles.altCart}>
+          <p className={styles.altCartMessage}>
+            Looks like you have no items in your basket currently.
+          </p>
           <Link to={"/"}>
-            <Button> Continue shopping</Button>
+            <Button variant="contained"> Continue shopping</Button>
           </Link>
         </div>
       )}
