@@ -9,7 +9,6 @@ import styles from "./Basket.module.css";
 
 export default function Basket() {
   const { products: productsInCart } = useSelector(selectCart);
-  console.log(productsInCart);
 
   const totalCount = productsInCart.reduce((acc, { count }) => acc + count, 0);
 

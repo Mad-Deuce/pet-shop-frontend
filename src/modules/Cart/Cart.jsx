@@ -8,16 +8,17 @@ import Card from "./Card/Card";
 
 import styles from "./Cart.module.css";
 
-export default function Cart({ cart = [] }) {
-  const totalItems = cart.reduce((acc, { count }) => acc + count, 0);
-  const totalCost = cart.reduce(
+export default function Cart({ cart = [], onSubmit }) {
+  const totalItems = cart.products.reduce((acc, { count }) => acc + count, 0);
+  const totalCost = cart.products.reduce(
     (acc, { count, price, discont_price }) =>
       acc + count * (discont_price ? discont_price : price),
     0
   );
-  console.log(totalCost);
 
-  const elements = cart.map((item) => <Card product={item} />);
+  const elements = cart.products.map((item) => (
+    <Card key={item.id} product={item} />
+  ));
 
   return (
     <>
@@ -39,6 +40,7 @@ export default function Cart({ cart = [] }) {
               buttonVariant="contained"
               condition={true}
               inputVariant="outlined"
+              onSubmit={onSubmit}
             />
           </div>
         </div>

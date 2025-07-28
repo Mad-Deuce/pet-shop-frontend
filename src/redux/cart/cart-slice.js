@@ -17,7 +17,7 @@ const cartState = {
       count: 2
     },
     {
-      "id": 1,
+      "id": 2,
       "title": "BELCANDO Mini Dog Food",
       "price": 35,
       "discont_price": 23,

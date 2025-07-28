@@ -17,7 +17,8 @@ const { VITE_API_URL: baseURL } = import.meta.env;
 export default function SingleProduct({ product = {} }) {
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
-  const productCount = cart.find((item) => item.id === product.id)?.count || 0;
+  const productCount =
+    cart.products.find((item) => item.id === product.id)?.count || 0;
 
   const [count, setCount] = useState(0);
   const textRef = useRef(null);

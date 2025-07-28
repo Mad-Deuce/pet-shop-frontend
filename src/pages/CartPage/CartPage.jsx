@@ -16,6 +16,10 @@ export default function CartPage() {
 
   const redirectToPreviousPage = () => navigate(-1);
 
+  const handleSubmit = (values) => {
+    console.log({user: values, products: cart.products});
+  };
+
   return (
     <Container>
       <div className={styles.cartPage}>
@@ -26,7 +30,7 @@ export default function CartPage() {
         >
           Shopping cart
         </SectionTitle>
-        <Cart cart={cart} />
+        <Cart cart={cart} onSubmit={handleSubmit} />
       </div>
     </Container>
   );

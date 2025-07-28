@@ -5,7 +5,7 @@ export default function Button({
   className,
   active = false,
   children,
-  handleClick,
+  handleClick = () => {},
   ...props
 }) {
   const fullClassName = `${styles.button} ${styles[variant]} ${
@@ -13,11 +13,7 @@ export default function Button({
   } ${className}`;
 
   return (
-    <button
-      className={fullClassName}
-      onClick={() => handleClick()}
-      {...props}
-    >
+    <button className={fullClassName} onClick={handleClick} {...props}>
       {children}
     </button>
   );
