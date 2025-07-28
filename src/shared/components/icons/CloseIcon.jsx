@@ -1,6 +1,5 @@
 export default function CloseIcon({ className }) {
   return (
-
     <svg
       className={className}
       width="24"
@@ -10,6 +9,7 @@ export default function CloseIcon({ className }) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
+        className={className}
         d="M18 6L6 18"
         stroke="#282828"
         strokeWidth="2"
@@ -17,6 +17,7 @@ export default function CloseIcon({ className }) {
         strokeLinejoin="round"
       />
       <path
+        className={className}
         d="M6 6L18 18"
         stroke="#282828"
         strokeWidth="2"

@@ -15,7 +15,6 @@ export default function Card({ product, handleDeleteProduct }) {
   const dispatch = useDispatch();
 
   const handleChangeCounter = (counter) => {
-    console.log(counter);
     if (counter === 0) dispatch(deleteFromCart(product.id));
     if (counter > 0) dispatch(updateInCart({ ...product, count: counter }));
   };

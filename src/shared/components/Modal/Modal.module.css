@@ -1,1 +1,41 @@
-.wrapper {}
+.modal {
+  position: fixed;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.dialog {
+  position: relative;
+}
+
+.closeButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  cursor: pointer;
+  background-color: var(--color-background-contained);
+}
+
+.closeButton:hover {
+  filter: brightness(1.3);
+}
+.closeButton:active {
+  filter: brightness(0.8);
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+
+  stroke: #fff;
+}
