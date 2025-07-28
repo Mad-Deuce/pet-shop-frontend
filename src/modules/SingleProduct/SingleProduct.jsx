@@ -18,7 +18,7 @@ export default function SingleProduct({ product = {} }) {
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
   const productCount =
-    cart.products.find((item) => item.id === product.id)?.count || 0;
+    cart.products?.find((item) => item.id === product.id)?.count || 0;
 
   const [count, setCount] = useState(0);
   const textRef = useRef(null);
@@ -85,7 +85,7 @@ export default function SingleProduct({ product = {} }) {
           <Counter
             handleChange={handleChangeCounter}
             initValue={productCount}
-            max={10}
+            max={99}
           />
           <Button
             variant={productCount > 0 ? "outlined" : "contained"}

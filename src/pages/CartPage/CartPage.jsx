@@ -8,7 +8,6 @@ import Container from "/src/shared/components/Container/Container";
 
 import { selectCart } from "/src/redux/cart/cart-selector.js";
 import { sendOrderThunk } from "/src/redux/cart/cart-thunk.js";
-import { deleteFromCart } from "/src/redux/cart/cart-slice.js";
 
 import styles from "./CartPage.module.css";
 
@@ -25,10 +24,7 @@ export default function CartPage() {
       dispatch(sendOrderThunk({ user: values, products: cart.products }));
   };
 
-  const handleDeleteProduct = (id) => {
-    console.log(id);
-    dispatch(deleteFromCart(id));
-  };
+
 
   return (
     <Container>
@@ -43,7 +39,6 @@ export default function CartPage() {
         <Cart
           cart={cart}
           onSubmit={handleSubmit}
-          handleDeleteProduct={handleDeleteProduct}
         />
       </div>
     </Container>

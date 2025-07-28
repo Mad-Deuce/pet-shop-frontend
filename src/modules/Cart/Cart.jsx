@@ -1,20 +1,30 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import OrderForm from "/src/modules/OrderForm/OrderForm";
-import Output from "/src/shared/components/Output/Output";
 import Button from "/src/shared/components/Button/Button";
 
 import Card from "./Card/Card";
 
+import { deleteFromCart } from "/src/redux/cart/cart-slice.js";
+
 import styles from "./Cart.module.css";
 
-export default function Cart({ cart = [], onSubmit, handleDeleteProduct }) {
+export default function Cart({ cart = [], onSubmit }) {
+  const dispatch = useDispatch();
   const totalItems = cart.products?.reduce((acc, { count }) => acc + count, 0);
   const totalCost = cart.products?.reduce(
     (acc, { count, price, discont_price }) =>
       acc + count * (discont_price ? discont_price : price),
     0
   );
+
+
+
+  const handleDeleteProduct = (id) => {
+    console.log(id);
+    dispatch(deleteFromCart(id));
+  };
 
   const elements = cart.products?.map((item) => (
     <Card

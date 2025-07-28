@@ -16,8 +16,6 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (store, { payload }) => {
       const product = store.products?.find((item) => item.id === payload.id);
-      console.log(product, " payload", payload);
-
       if (product) {
         product.count += 1;
       } else {
@@ -43,8 +41,10 @@ const cartSlice = createSlice({
         store.products.push({ ...payload });
       }
     },
-    deleteFromCart: (store, { payload }) =>
-      store.products.filter((item) => item.id !== payload),
+    deleteFromCart: (store, { payload }) => {
+      const products = store.products.filter((item) => item.id !== payload);
+      store.products = products;
+    },
   },
   extraReducers: (builder) => {
     builder
