@@ -8,18 +8,20 @@ import Card from "./Card/Card";
 
 import styles from "./Cart.module.css";
 
-export default function Cart({ cart = [], onSubmit }) {
-  console.log(cart);
-
-  const totalItems = cart.products.reduce((acc, { count }) => acc + count, 0);
-  const totalCost = cart.products.reduce(
+export default function Cart({ cart = [], onSubmit, handleDeleteProduct }) {
+  const totalItems = cart.products?.reduce((acc, { count }) => acc + count, 0);
+  const totalCost = cart.products?.reduce(
     (acc, { count, price, discont_price }) =>
       acc + count * (discont_price ? discont_price : price),
     0
   );
 
-  const elements = cart.products.map((item) => (
-    <Card key={item.id} product={item} />
+  const elements = cart.products?.map((item) => (
+    <Card
+      key={item.id}
+      product={item}
+      handleDeleteProduct={handleDeleteProduct}
+    />
   ));
 
   return (

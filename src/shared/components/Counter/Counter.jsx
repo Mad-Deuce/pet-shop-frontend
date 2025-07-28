@@ -8,7 +8,7 @@ export default function Counter({
   initValue = 9,
   min = 0,
   max = 5,
-  handleChange,
+  handleChange = () => {},
 }) {
   const [value, setValue] = useState(initValue);
 

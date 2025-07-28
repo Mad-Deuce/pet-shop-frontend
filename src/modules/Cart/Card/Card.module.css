@@ -1,1 +1,43 @@
-.wrapper {}
+.wrapper {
+  display: grid;
+  grid-template-columns: 2fr 5.5fr;
+}
+.img {
+  width: 100%;
+}
+
+.infoWrapper {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--color-text-primary);
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.closeIcon {
+  border-radius: 50%;
+  cursor: pointer;
+}
+.closeIcon:hover {
+  background-color: var(--color-background-footer);
+}
+.closeIcon:active {
+  filter: brightness(1.1);
+}

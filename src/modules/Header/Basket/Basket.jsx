@@ -10,7 +10,7 @@ import styles from "./Basket.module.css";
 export default function Basket() {
   const { products: productsInCart } = useSelector(selectCart);
 
-  const totalCount = productsInCart.reduce((acc, { count }) => acc + count, 0);
+  const totalCount = productsInCart?.reduce((acc, { count }) => acc + count, 0) || 0;
 
   return (
     <Link to="/cart" className={styles.basket}>
