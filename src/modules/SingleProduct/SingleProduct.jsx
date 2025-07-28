@@ -18,7 +18,6 @@ export default function SingleProduct({ product = {} }) {
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
   const productCount = cart.find((item) => item.id === product.id)?.count || 0;
-  console.log("productCount: ", productCount);
 
   const [count, setCount] = useState(0);
   const textRef = useRef(null);

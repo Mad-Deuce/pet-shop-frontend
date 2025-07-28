@@ -8,7 +8,6 @@ import BreadCrumbs from "/src/shared/components/BreadCrumbs/BreadCrumbs";
 import Container from "/src/shared/components/Container/Container";
 import Output from "/src/shared/components/Output/Output";
 
-// import useFetch from "/src/shared/hooks/useFetch";
 import { getProductByIdApi } from "/src/shared/api/productsApi";
 import { getCategoryByIdApi } from "/src/shared/api/categoriesApi";
 import { defaultBreadcrumbs } from "/src/shared/components/Breadcrumbs/breadcrumbsInit";

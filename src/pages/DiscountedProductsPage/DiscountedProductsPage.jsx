@@ -45,7 +45,7 @@ export default function DiscountedProductsPage() {
             error={error}
             loading={loading}
             condition={Boolean(products.length)}
-            altMessage="No categories available"
+            altMessage="No products available"
           >
             <Products products={products} onlyDiscounted={true}/>
           </Output>

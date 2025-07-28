@@ -22,6 +22,7 @@
   position: relative;
   display: flex;
   bottom: 0rem;
+  align-items: end;
 }
 .img {
   display: block;
@@ -29,7 +30,7 @@
 
 .form {
   position: relative;
-  padding-bottom:2rem;
+  padding-block: 1rem;
   top: 0;
-  bottom: 0;
+  bottom: 0rem;
 }

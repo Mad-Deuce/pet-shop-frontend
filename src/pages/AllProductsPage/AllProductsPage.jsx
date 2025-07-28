@@ -44,7 +44,7 @@ export default function ProductsPage() {
           error={error}
           loading={loading}
           condition={Boolean(products.length)}
-          altMessage="No categories available"
+          altMessage="No products available"
         >
           <Products products={products} />
         </Output>

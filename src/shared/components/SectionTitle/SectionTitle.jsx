@@ -7,6 +7,7 @@ export default function SectionTitle({
   showButton,
   buttonLabel,
   buttonLink = "/",
+  onClick
 }) {
   return (
     <div className={styles.sectionTitle}>
@@ -15,7 +16,7 @@ export default function SectionTitle({
         <>
           <div className={styles.line}></div>
           <Link to={buttonLink}>
-            <button type="button" className={styles.button}>
+            <button type="button" className={styles.button} onClick={onClick}>
               {buttonLabel}
             </button>
           </Link>

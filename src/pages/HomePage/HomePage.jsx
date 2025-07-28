@@ -71,7 +71,7 @@ export default function HomePage() {
             error={productsError}
             loading={productsLoading}
             condition={true}
-            altMessage="No popular categories available"
+            altMessage="No popular products available"
           >
             <Products
               products={products}
