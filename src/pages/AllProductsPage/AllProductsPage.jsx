@@ -1,4 +1,3 @@
-import {  useState } from "react";
 
 import Products from "/src/modules/Products/Products";
 import ControlBar from "/src/modules/Products/ControlBar/ControlBar";
@@ -9,6 +8,7 @@ import Container from "/src/shared/components/Container/Container";
 import Output from "/src/shared/components/Output/Output";
 
 import useFetch from "/src/shared/hooks/useFetch";
+import useFilter from "/src/shared/hooks/useFilter";
 import { getAllProductsApi } from "/src/shared/api/productsApi";
 
 import styles from "./AllProductsPage.module.css";
@@ -25,7 +25,7 @@ const breadcrumbs = [
 ];
 
 export default function ProductsPage() {
-  const [params, setParams] = useState({});
+  const { params, handleFilterChange } = useFilter({});
 
   const {
     state: { products },
@@ -34,25 +34,8 @@ export default function ProductsPage() {
   } = useFetch({
     request: getAllProductsApi,
     initialState: [],
-    params: params,
+    requestParams: params,
   });
-
-  const handleFilterChange = (filter) => {
-    const modifyFilter = { ...filter };
-    if (!modifyFilter.minPrice) {
-      delete modifyFilter.minPrice;
-    }
-    if (!modifyFilter.maxPrice) {
-      delete modifyFilter.maxPrice;
-    }
-    if (!modifyFilter.discont) {
-      delete modifyFilter.discont;
-    }
-    modifyFilter.sortBy = modifyFilter.sortBy.value;
-    console.log("filteredValue: ", modifyFilter);
-
-    setParams(modifyFilter);
-  };
 
   return (
     <Container>
