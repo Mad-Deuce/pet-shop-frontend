@@ -8,25 +8,29 @@ import Container from "/src/shared/components/Container/Container";
 import Modal from "/src/shared/components/Modal/Modal";
 
 import { selectCart } from "/src/redux/cart/cart-selector.js";
-import { sendOrderThunk } from "/src/redux/cart/cart-thunk.js";
+import { sendOrderThunk, syncCartThunk } from "/src/redux/cart/cart-thunk.js";
 
 import styles from "./CartPage.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function CartPage() {
   const cart = useSelector(selectCart);
+  const productsIds = cart.products.map(({ id }) => id);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
 
+  useEffect(() => {
+    dispatch(syncCartThunk({ productsIds }));
+  }, []);
+
   const redirectToPreviousPage = () => navigate(-1);
 
   const handleSubmit = (values) => {
-    console.log({ user: values, products: cart.products });
     if (cart.products.length > 0) {
       dispatch(sendOrderThunk({ user: values, products: cart.products }));
       if (!cart.loading && !cart.error) {
-        console.log("modal");
         setShowModal(true);
       }
     }

@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { sendOrderThunk } from "./cart-thunk";
+import { syncCartThunk } from "./cart-thunk";
 
 import { pending, rejected } from "/src/shared/lib/redux";
 
@@ -51,9 +52,20 @@ const cartSlice = createSlice({
       .addCase(sendOrderThunk.pending, pending)
       .addCase(sendOrderThunk.fulfilled, (store) => {
         store.loading = false;
-        store.products = [];   // Attention
+        store.products = [];
       })
       .addCase(sendOrderThunk.rejected, rejected)
+
+      .addCase(syncCartThunk.pending, pending)
+      .addCase(syncCartThunk.fulfilled, (store, { payload }) => {
+        const syncProducts = payload.data.map(item => {
+          const oldProduct = store.products.find(({ id }) => item.id = id)
+          return { ...item, count: oldProduct.count }
+        })
+        store.products = syncProducts;
+        store.loading = false;
+      })
+      .addCase(syncCartThunk.rejected, rejected)
   },
 });
 
