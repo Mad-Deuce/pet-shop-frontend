@@ -12,7 +12,7 @@ export const getAllProductsApi = fetchDecorator((params = defaultParams) => inst
 
 export const getPopularProductsApi = fetchDecorator(() => instance.get("products/all", { params: { discont: true, page: 1, perPage: 4 } }));
 
-export const getDiscontedProductsApi = fetchDecorator(() => instance.get("products/all", { params: { discont: true } }));
+export const getDiscontedProductsApi = fetchDecorator((params = defaultParams) => instance.get("products/all", { params: { discont: true, ...params } }));
 
 export const getProductsByCategoryApi = fetchDecorator((categoryId, params = defaultParams) => instance.get("categories/" + categoryId, { params: { ...params } }));
 

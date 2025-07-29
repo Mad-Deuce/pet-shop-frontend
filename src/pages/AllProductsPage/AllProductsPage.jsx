@@ -1,6 +1,5 @@
-
 import Products from "/src/modules/Products/Products";
-import ControlBar from "/src/modules/Products/ControlBar/ControlBar";
+import ControlBar from "/src/modules/ControlBar/ControlBar";
 
 import BreadCrumbs from "/src/shared/components/BreadCrumbs/BreadCrumbs";
 import SectionTitle from "/src/shared/components/SectionTitle/SectionTitle";
@@ -53,10 +52,7 @@ export default function ProductsPage() {
           condition={Boolean(products?.length)}
           altMessage="No products available"
         >
-          <Products
-            products={products}
-            handleFilterChange={handleFilterChange}
-          />
+          <Products products={products} />
         </Output>
       </div>
       ;
