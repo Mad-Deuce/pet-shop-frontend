@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Products from "/src/modules/Products/Products";
 import ControlBar from "/src/modules/ControlBar/ControlBar";
 
-import BreadCrumbs from "/src/shared/components/BreadCrumbs/BreadCrumbs";
+import Breadcrumbs from "/src/shared/components/Breadcrumbs/Breadcrumbs";
 import SectionTitle from "/src/shared/components/SectionTitle/SectionTitle";
 import Container from "/src/shared/components/Container/Container";
 import Output from "/src/shared/components/Output/Output";
@@ -48,7 +48,7 @@ export default function ProductsByCategoryPage() {
   return (
     <Container>
       <div className={styles.productsPage}>
-        <BreadCrumbs breadcrumbs={breadcrumbs} />
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
         <SectionTitle>{category?.title}</SectionTitle>
         <ControlBar
           handleFilterChange={handleFilterChange}

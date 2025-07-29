@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 
 import SingleProduct from "/src/modules/SingleProduct/SingleProduct";
 
-import BreadCrumbs from "/src/shared/components/BreadCrumbs/BreadCrumbs";
+import Breadcrumbs from "/src/shared/components/Breadcrumbs/Breadcrumbs";
 import Container from "/src/shared/components/Container/Container";
 import Output from "/src/shared/components/Output/Output";
 
@@ -48,7 +48,7 @@ export default function SingleProductPage() {
   return (
     <Container>
       <div className={styles.singleProductPage}>
-        <BreadCrumbs breadcrumbs={breadcrumbs} />
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
         <Output
           error={error}
           loading={loading}

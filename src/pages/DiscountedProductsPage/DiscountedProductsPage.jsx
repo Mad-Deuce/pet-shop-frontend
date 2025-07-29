@@ -1,7 +1,7 @@
 import Products from "/src/modules/Products/Products";
 import ControlBar from "/src/modules/ControlBar/ControlBar";
 
-import BreadCrumbs from "/src/shared/components/BreadCrumbs/BreadCrumbs";
+import Breadcrumbs from "/src/shared/components/Breadcrumbs/Breadcrumbs";
 import SectionTitle from "/src/shared/components/SectionTitle/SectionTitle";
 import Container from "/src/shared/components/Container/Container";
 import Output from "/src/shared/components/Output/Output";
@@ -39,7 +39,7 @@ export default function DiscountedProductsPage() {
   return (
     <Container>
       <div className={styles.discountedProductsPage}>
-        <BreadCrumbs breadcrumbs={breadcrumbs} />
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
         <SectionTitle>Discounted items</SectionTitle>
         <ControlBar
           handleFilterChange={handleFilterChange}
