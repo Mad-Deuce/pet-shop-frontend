@@ -31,7 +31,7 @@ export default function DiscountedProductsPage() {
     error,
     loading,
   } = useFetch({
-    request: getDiscontedProductsApi,
+    request: () => getDiscontedProductsApi({ params }),
     initialState: [],
     requestParams: params,
   });

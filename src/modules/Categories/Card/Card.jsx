@@ -8,7 +8,7 @@ export default function Card({ category }) {
   return (
     <Link
       to={{
-        pathname: `/categories/${category.id}`,
+        pathname: `/categories/${category.slug}`,
       }}
       className={styles.card}
     >

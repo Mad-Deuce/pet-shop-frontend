@@ -1,7 +1,7 @@
-import { useCallback } from "react";
 import { useParams } from "react-router-dom";
 
 import Products from "/src/modules/Products/Products";
+import ControlBar from "/src/modules/ControlBar/ControlBar";
 
 import BreadCrumbs from "/src/shared/components/BreadCrumbs/BreadCrumbs";
 import SectionTitle from "/src/shared/components/SectionTitle/SectionTitle";
@@ -9,23 +9,25 @@ import Container from "/src/shared/components/Container/Container";
 import Output from "/src/shared/components/Output/Output";
 
 import useFetch from "/src/shared/hooks/useFetch";
+import useFilter from "/src/shared/hooks/useFilter";
 import { getProductsByCategoryApi } from "/src/shared/api/productsApi";
 
 import styles from "./ProductsByCategoryPage.module.css";
 
 export default function ProductsByCategoryPage() {
-  const categoryId = useParams().id;
+  const categorySlug = useParams().slug;
+  const { params, handleFilterChange } = useFilter({});
 
   const {
-    state: response,
+    state: { category, data },
     error,
     loading,
   } = useFetch({
-    request: useCallback(
-      () => getProductsByCategoryApi(categoryId),
-      [categoryId]
-    ),
+    request: () => getProductsByCategoryApi({ categorySlug, params }),
+
     initialState: [],
+    requestParams: params,
+    slug: categorySlug,
   });
 
   const breadcrumbs = [
@@ -34,12 +36,12 @@ export default function ProductsByCategoryPage() {
       title: "Main Page",
     },
     {
-      href: "/categories/all",
+      href: "/categories",
       title: "Categories",
     },
     {
-      href: "/categories/" + categoryId,
-      title: response?.category?.title,
+      href: "/categories/" + categorySlug,
+      title: category?.title,
     },
   ];
 
@@ -47,14 +49,18 @@ export default function ProductsByCategoryPage() {
     <Container>
       <div className={styles.productsPage}>
         <BreadCrumbs breadcrumbs={breadcrumbs} />
-        <SectionTitle>{response?.category?.title}</SectionTitle>
+        <SectionTitle>{category?.title}</SectionTitle>
+        <ControlBar
+          handleFilterChange={handleFilterChange}
+          onlyDiscounted={false}
+        />
         <Output
           error={error}
           loading={loading}
-          condition={Boolean(response?.data?.length)}
+          condition={data?.total > 0}
           altMessage="No products available"
         >
-          <Products products={response?.data} />
+          <Products products={data?.products} />
         </Output>
       </div>
     </Container>

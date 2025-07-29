@@ -31,7 +31,7 @@ export default function ProductsPage() {
     error,
     loading,
   } = useFetch({
-    request: getAllProductsApi,
+    request: () => getAllProductsApi({ params }),
     initialState: [],
     requestParams: params,
   });
@@ -45,7 +45,6 @@ export default function ProductsPage() {
           handleFilterChange={handleFilterChange}
           onlyDiscounted={false}
         />
-
         <Output
           error={error}
           loading={loading}
