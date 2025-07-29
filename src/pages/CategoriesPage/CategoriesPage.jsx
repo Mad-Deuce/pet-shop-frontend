@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 
-import BreadCrumbs from "/src/shared/components/BreadCrumbs/BreadCrumbs";
+// import BreadCrumbs from "/src/shared/components/BreadCrumbs/BreadCrumbs";
+import BreadCrumbs from "../../shared/components/Breadcrumbs/Breadcrumbs";
 import SectionTitle from "/src/shared/components/SectionTitle/SectionTitle";
 import Container from "/src/shared/components/Container/Container";
 import Output from "/src/shared/components/Output/Output";
