@@ -19,3 +19,4 @@ export const getProductsByCategoryApi = fetchDecorator(({ categorySlug, params =
 });
 
 export const getProductByIdApi = fetchDecorator((productId) => instance.get("products/" + productId));
+export const getProductBySlugApi = fetchDecorator(({productSlug}) => instance.get(`products/${productSlug}`));

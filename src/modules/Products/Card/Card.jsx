@@ -23,7 +23,7 @@ export default function Card({ product, handleClick }) {
 
   return (
     <div className={styles.card}>
-      <Link to={`/products/${product.id}`}>
+      <Link to={`/products/${product.slug}`}>
         <div className={styles.wrapper}>
           <div className={styles.imgWrapper}>
             <img

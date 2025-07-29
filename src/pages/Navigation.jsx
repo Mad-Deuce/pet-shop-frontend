@@ -16,7 +16,7 @@ export default function Navigation() {
       <Route path="/" element={<HomePage />} />
       <Route path="/categories" element={<CategoriesPage />} />
       <Route path="/products/all" element={<AllProductsPage />} />
-      <Route path="/products/:id" element={<SingleProductPage />} />
+      <Route path="/products/:slug" element={<SingleProductPage />} />
       <Route path="/sales" element={<DiscountedProductsPage />} />
       <Route path="/categories/:slug" element={<ProductsByCategoryPage />} />
       <Route path="/cart" element={<CartPage />} />
