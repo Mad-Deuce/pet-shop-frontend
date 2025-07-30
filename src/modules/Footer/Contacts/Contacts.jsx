@@ -22,7 +22,7 @@ export default function Contacts() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <InstagramIcon />
+            <InstagramIcon className={styles.icon} />
           </Link>
           <Link
             className={styles.link}
@@ -30,7 +30,7 @@ export default function Contacts() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <WhatsappIcon />
+            <WhatsappIcon className={styles.icon} />
           </Link>
         </div>
       </div>

@@ -34,3 +34,8 @@
   display: flex;
   gap: 1rem;
 }
+
+.icon:hover {
+  fill: var(--color-text-hover);
+  stroke: var(--color-text-hover);
+}
