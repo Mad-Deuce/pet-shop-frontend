@@ -22,7 +22,7 @@ export default function Card({ product, handleDeleteProduct }) {
   return (
     <div className={styles.card}>
       <div className={styles.wrapper}>
-        <Link to={`/products/${product.id}`}>
+        <Link to={`/products/${product.slug}`}>
           <div className={styles.imgWrapper}>
             <img
               src={baseURL + product.image}
