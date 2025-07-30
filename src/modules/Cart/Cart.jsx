@@ -52,6 +52,7 @@ export default function Cart({ cart = [], onSubmit }) {
             <OrderForm
               className={styles.form}
               buttonVariant="contained"
+              buttonLabel="Order"
               condition={true}
               inputVariant="outlined"
               onSubmit={onSubmit}

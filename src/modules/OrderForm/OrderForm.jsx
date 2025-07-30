@@ -12,6 +12,8 @@ import styles from "./OrderForm.module.css";
 export default function OrderForm({
   className,
   buttonVariant = "text",
+  buttonLabel = "Get a discount",
+  altButtonLabel = "Request Submitted",
   inputVariant = "filled",
   condition,
   error,
@@ -74,7 +76,7 @@ export default function OrderForm({
           active={!condition}
           disabled={!isValid}
         >
-          {!condition ? "Request Submitted" : "Get a discount"}
+          {!condition ? altButtonLabel : buttonLabel}
         </Button>
       </form>
     </Output>
