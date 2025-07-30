@@ -71,7 +71,81 @@ FOOTER
     Read more                                                                           
 
 корзина
+    синхронизация информации о товарах в корзине с бекендом
     заголовок с кнопкой на предыдущую страницу
     пустая  - сообщение, кнопка на главную     
     счетчик при изменении  
     форма аналогично первому заказу
+    приотправке формы появляется модалка и очищается корзина
+
+    ------  Структура кода -----------------
+
+    Типовая
+    Кастомные функции   - getPercentageDiscont    
+                        - fetchDecorator
+                        - pending, rejected     обработка екстра редьюсеров
+
+    Кастомные хуки      - useFetch    
+                        - useFilter
+
+    api                 - category
+                        - products
+                        - sales
+                        - order
+
+    страницы                    запросы на бекенд, обработчики - работа с РЕДАКС
+        HomePage 
+        CategoriesPage
+        AllProductsPage
+        DiscountedProductsPage
+        ProductsByCategoryPage
+        SingleProductPage
+        CartPage
+        NotFoundPage
+
+    модули
+        Header
+        Footer    
+        DiscountBanner   
+        FirstOrderBanner   
+        Categories
+        ControlBar
+        Products
+        SingleProduct
+        Cart
+        App
+
+    компоненты
+        Container
+        Output
+        Modal
+
+        Badge
+        Breadcrumbs
+
+        Button
+        Checkbox
+        Select
+        TextField
+
+        Counter
+        PriceBox
+        SectionTitle
+
+        icons
+
+-------- стилизция компонентов ----------
+    внутрений className
+    внешний className - пропс
+    пропс variant
+    пропс active
+
+-------- проблемы с проектом ----------
+    1. ControlBar - интеграция с "react-hook-form" - не используется тег form, получение данных с помощью watch
+    2. SingleProductPage (Breadcrumbs) - организация связанных запросов, пытался решить с помощью отдельных хуков useFetch - работало не стабильно
+                            -  решение - последовательные await запросы.   В новом бекенде - проблема отпала
+    3. API - передача в запрос нескольких параметров (пагинация+фильры) - решено ДЕСТРУКТУРИЗАЦИЯ
+
+
+
+
