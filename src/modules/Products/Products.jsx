@@ -9,6 +9,7 @@ import styles from "./Products.module.css";
 export default function Products({ products = [], limit = 50 }) {
   const dispatch = useDispatch();
 
+  
   const handleClick = (product) => {
     dispatch(addToCart(product));
   };

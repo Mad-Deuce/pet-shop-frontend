@@ -58,8 +58,9 @@ const cartSlice = createSlice({
 
       .addCase(syncCartThunk.pending, pending)
       .addCase(syncCartThunk.fulfilled, (store, { payload }) => {
+
         const syncProducts = payload.data.map(item => {
-          const oldProduct = store.products.find(({ id }) => item.id = id)
+          const oldProduct = store.products.find(({ id }) => item.id === id)
           return { ...item, count: oldProduct.count }
         })
         store.products = syncProducts;
