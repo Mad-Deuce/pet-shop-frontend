@@ -1,0 +1,1 @@
+export const selectPrefaceVisible = store => store.preface.visible;

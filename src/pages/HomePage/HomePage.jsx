@@ -1,4 +1,5 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import DiscountBanner from "/src/modules/DiscountBanner/DiscountBanner";
 import Categories from "/src/modules/Categories/Categories";
@@ -15,6 +16,9 @@ import Preface from "/src/shared/components/Preface/Preface";
 import useFetch from "/src/shared/hooks/useFetch";
 import { getPopularCategoriesApi } from "/src/shared/api/categoriesApi";
 import { getPopularProductsApi } from "/src/shared/api/productsApi";
+
+import { selectPrefaceVisible } from "/src/redux/preface/preface-selector.js";
+import { disableModal } from "/src/redux/preface/preface-slice.js";
 
 import styles from "./HomePage.module.css";
 
@@ -37,7 +41,8 @@ export default function HomePage() {
     initialState: [],
   });
 
-  const [showModal, setShowModal] = useState(true);
+  const showModal = useSelector(selectPrefaceVisible);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -89,7 +94,7 @@ export default function HomePage() {
         <Modal
           className={styles.modal}
           modalClose={() => {
-            setShowModal(false);
+            dispatch(disableModal());
           }}
         >
           <Dialog className={styles.dialog}>
