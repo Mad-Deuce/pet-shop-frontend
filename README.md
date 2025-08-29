@@ -1,12 +1,69 @@
-# React + Vite
+# [Pet-shop-frontend](https://pet-shop-frontend-blue.vercel.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The application was created as part of a training project on the React course, the goal of which was to create the frontend part of an online store selling pet products 
 
-Currently, two official plugins are available:
+## Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Technologies](#technologies)
+- [Development](#development)
+- [Deploy и CI/CD](#deploy-and-cicd)
+- [Contributing](#contributing)
+- [To do](#to-do)
+- [Project Team](#project-team)
 
-## Expanding the ESLint configuration
+## Technologies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [Axios](https://axios-http.com/)
+- [Redux](https://redux.js.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [React Redux](https://react-redux.js.org/)
+- [React Persist](https://www.npmjs.com/package/redux-persist)
+- [React Hook Form](https://react-hook-form.com/)
+- [Yup](https://www.npmjs.com/package/yup)
+- [React Hook Form Resolvers](https://www.npmjs.com/package/@hookform/resolvers)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [React Select](https://react-select.com/home)
+
+## Development
+
+The frontend source code is available at [address]([https://](https://github.com/Mad-Deuce/pet-shop-frontend))
+
+The backend source code is available at [address](https://github.com/Mad-Deuce/pet-shop-backend)
+
+To install and run the backend, you need [NodeJS](https://nodejs.org/) v22.13.0+.
+
+### Installing dependencies
+
+To install dependencies, run the command:
+
+```shell
+$ npm i
+```
+
+### Launching Development server
+
+To start the development server, run the command:
+
+```shell
+npm run dev
+```
+
+### Creating a build
+
+To perform a production build, run the command:
+
+```shell
+npm run build
+```
+
+## Deploy and CI/CD
+
+## Contributing
+
+## FAQ
+
+## To do
+
+## Project Team
+
+- Petro Zolotukhin [LinkedIn](www.linkedin.com/in/petro-zolotukhin-149a95319) [email](zolotukhinpv@gmail.com)

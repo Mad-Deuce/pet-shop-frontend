@@ -1,0 +1,9 @@
+.dialog {
+  /* width: 100%; */
+  /* width: 348px; */
+  max-width: 1024px;
+  padding: 3rem;
+  background-color: aliceblue;
+  border-radius: 1rem;
+  border: none;
+}

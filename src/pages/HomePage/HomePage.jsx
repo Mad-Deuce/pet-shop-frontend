@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import DiscountBanner from "/src/modules/DiscountBanner/DiscountBanner";
 import Categories from "/src/modules/Categories/Categories";
@@ -8,6 +8,9 @@ import Products from "/src/modules/Products/Products";
 import Output from "/src/shared/components/Output/Output";
 import Container from "/src/shared/components/Container/Container";
 import SectionTitle from "/src/shared/components/SectionTitle/SectionTitle";
+import Modal from "/src/shared/components/Modal/Modal";
+import Dialog from "/src/shared/components/Dialog/Dialog";
+import Preface from "/src/shared/components/Preface/Preface";
 
 import useFetch from "/src/shared/hooks/useFetch";
 import { getPopularCategoriesApi } from "/src/shared/api/categoriesApi";
@@ -21,10 +24,7 @@ export default function HomePage() {
     error: categoriesError,
     loading: categoriesLoading,
   } = useFetch({
-    request: useCallback(
-      () => getPopularCategoriesApi(),
-      []
-    ),
+    request: useCallback(() => getPopularCategoriesApi(), []),
     initialState: [],
   });
 
@@ -33,53 +33,70 @@ export default function HomePage() {
     error: productsError,
     loading: productsLoading,
   } = useFetch({
-    request: useCallback(
-      () => getPopularProductsApi(),
-      []
-    ),
+    request: useCallback(() => getPopularProductsApi(), []),
     initialState: [],
   });
 
-  return (
-    <div className={styles.homePage}>
-      <DiscountBanner />
-      <Container>
-        <div className={styles.content}>
-          <SectionTitle
-            showButton
-            buttonLabel="All Categories"
-            buttonLink="/categories"
-          >
-            Categories
-          </SectionTitle>
-          <Output
-            error={categoriesError}
-            loading={categoriesLoading}
-            condition={true}
-            altMessage="No popular categories available"
-          >
-            <Categories limit={4} categories={categories} />
-          </Output>
+  const [showModal, setShowModal] = useState(true);
 
-          <FirstOrderBanner />
-          <SectionTitle showButton buttonLabel="All Sales" buttonLink="/sales">
-            Sale
-          </SectionTitle>
-          <Output
-            error={productsError}
-            loading={productsLoading}
-            condition={true}
-            altMessage="No popular products available"
-          >
-            <Products
-              products={products}
-              limit={4}
-              showControl={false}
-              onlyDiscounted={true}
-            />
-          </Output>
-        </div>
-      </Container>
-    </div>
+  return (
+    <>
+      <div className={styles.homePage}>
+        <DiscountBanner />
+        <Container>
+          <div className={styles.content}>
+            <SectionTitle
+              showButton
+              buttonLabel="All Categories"
+              buttonLink="/categories"
+            >
+              Categories
+            </SectionTitle>
+            <Output
+              error={categoriesError}
+              loading={categoriesLoading}
+              condition={true}
+              altMessage="No popular categories available"
+            >
+              <Categories limit={4} categories={categories} />
+            </Output>
+
+            <FirstOrderBanner />
+            <SectionTitle
+              showButton
+              buttonLabel="All Sales"
+              buttonLink="/sales"
+            >
+              Sale
+            </SectionTitle>
+            <Output
+              error={productsError}
+              loading={productsLoading}
+              condition={true}
+              altMessage="No popular products available"
+            >
+              <Products
+                products={products}
+                limit={4}
+                showControl={false}
+                onlyDiscounted={true}
+              />
+            </Output>
+          </div>
+        </Container>
+      </div>
+      {showModal && (
+        <Modal
+          className={styles.modal}
+          modalClose={() => {
+            setShowModal(false);
+          }}
+        >
+          <Dialog className={styles.dialog}>
+            <Preface />
+          </Dialog>
+        </Modal>
+      )}
+    </>
   );
 }
